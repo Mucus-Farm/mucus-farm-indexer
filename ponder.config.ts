@@ -1,16 +1,43 @@
 import type { Config } from "@ponder/core";
 
+console.log("anvil rpc: ", process.env.ANVIL_RPC_URL);
+
 export const config: Config = {
   networks: [
-    { name: "mainnet", chainId: 1, rpcUrl: process.env.PONDER_RPC_URL_1 },
+    // { name: "goerli", chainId: 5, rpcUrl: process.env.GOERLI_RPC_URL },
+    { name: "anvil", chainId: 1, rpcUrl: process.env.ANVIL_RPC_URL },
   ],
   contracts: [
+    // {
+    //   name: "Mucus",
+    //   network: "goerli",
+    //   address: process.env.MUCUS_CONTRACT_ADDRESS! as `0x${string}`,
+    //   abi: "./abis/Mucus.json",
+    //   startBlock: process.env.MUCUS_START_BLOCK! as unknown as number,
+    // },
     {
-      name: "ExampleContract",
-      network: "mainnet",
-      address: "0x0",
-      abi: "./abis/ExampleContract.json",
-      startBlock: 1234567,
+      name: "DividendsPairStaking",
+      network: "anvil",
+      address: process.env.DPS_CONTRACT_ADDRESS! as `0x${string}`,
+      abi: "./abis/DividendsPairStaking.json",
+      // startBlock: process.env.DPS_START_BLOCK! as unknown as number,
+      startBlock: 16183400,
     },
+    {
+      name: "FrogsAndDogs",
+      network: "anvil",
+      address: process.env.FND_CONTRACT_ADDRESS! as `0x${string}`,
+      abi: "./abis/FrogsAndDogs.json",
+      // startBlock: process.env.FND_CONTRACT_ADDRESS! as unknown as number,
+      startBlock: 16183400,
+    },
+    {
+      name: "MucusFarm",
+      network: "anvil",
+      address: process.env.MUCUS_FARM_CONTRACT_ADDRESS! as `0x${string}`,
+      abi: "./abis/MucusFarm.json",
+      // startBlock: process.env.MUCUS_FARM_START_BLOCK! as unknown as number,
+      startBlock: 16182000,
+    }
   ],
 };
