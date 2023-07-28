@@ -20,7 +20,7 @@ export const config: Config = {
       network: "anvil",
       address: process.env.DPS_CONTRACT_ADDRESS! as `0x${string}`,
       abi: "./abis/DividendsPairStaking.json",
-      // startBlock: process.env.DPS_START_BLOCK! as unknown as number,
+      // startBlock: Number(process.env.DPS_START_BLOCK!),
       startBlock: 16183400,
     },
     {
@@ -28,7 +28,7 @@ export const config: Config = {
       network: "anvil",
       address: process.env.FND_CONTRACT_ADDRESS! as `0x${string}`,
       abi: "./abis/FrogsAndDogs.json",
-      // startBlock: process.env.FND_CONTRACT_ADDRESS! as unknown as number,
+      // startBlock: Number(process.env.FND_START_BLOCK!),
       startBlock: 16183400,
     },
     {
@@ -36,7 +36,7 @@ export const config: Config = {
       network: "anvil",
       address: process.env.MUCUS_FARM_CONTRACT_ADDRESS! as `0x${string}`,
       abi: "./abis/MucusFarm.json",
-      // startBlock: process.env.MUCUS_FARM_START_BLOCK! as unknown as number,
+      // startBlock: Number(process.env.MUCUS_FARM_START_BLOCK!),
       startBlock: 16182000,
     }
   ],
