@@ -50,8 +50,6 @@ ponder.on("MucusFarm:TokensFarmed", async ({ event }) => {
   const { parent, mucusFarmed: amount } = event.params;
   const { timestamp } = event.block;
 
-  console.log("tokens farmed: ", parent, mucusFarmed, amount)
-
   const [mucusFarmedOwner] = await db.select().from(mucusFarmed).where(eq(mucusFarmed.id, parent))
 
   if (mucusFarmedOwner) {
@@ -59,7 +57,6 @@ ponder.on("MucusFarm:TokensFarmed", async ({ event }) => {
       .update(mucusFarmed)
       .set({ 
         amount: (BigInt(mucusFarmedOwner.amount) + amount).toString(),
-        createdAt: new Date(Number(timestamp) * 1000),
         updatedAt: new Date(Number(timestamp) * 1000),
       })
   } else {
