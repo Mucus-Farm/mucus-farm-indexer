@@ -9,7 +9,7 @@ export const config: Config = {
   contracts: [
    {
       name: "DividendsPairStaking",
-      network: "goerli",
+      network: "mainnet",
       address: process.env.DPS_CONTRACT_ADDRESS! as `0x${string}`,
       abi: "./abis/DividendsPairStaking.json",
       startBlock: Number(process.env.DPS_START_BLOCK!),
